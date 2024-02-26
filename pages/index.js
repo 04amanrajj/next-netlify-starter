@@ -1,23 +1,21 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+const display = document.getElementById("display");
 
-export default function Home() {
-  return (
-    <div className="container">
-      <Head>
-        <title>Next.js Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+function appendToDisplay(Input){
+    display.value +=Input;
+}
 
-      <main>
-        <Header title="Welcome to my app!" />
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-      </main>
+function clearDisplay(){
+    display.value=''
+}
 
-      <Footer />
-    </div>
-  )
+function calculate(){
+    try{
+        display.value = eval(display.value)
+    }
+    catch(error){
+        display.value = "Error!";
+    }
+    if(display.value==1/0){
+        display.value= "Can't"
+    }
 }
